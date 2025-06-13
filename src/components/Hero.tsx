@@ -94,16 +94,26 @@ const Hero = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 rounded-full animate-spin-slow opacity-80"></div>
               <div className="absolute inset-2 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-full animate-spin-slow opacity-60" style={{ animationDirection: 'reverse', animationDuration: '15s' }}></div>
               
-              {/* Avatar principal */}
-              <div className="absolute inset-4 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 rounded-full flex items-center justify-center text-white text-6xl font-bold shadow-2xl group-hover:scale-110 transition-transform duration-500 animate-gradient-shift">
-                PO
+              {/* Avatar principal avec image de profil */}
+              <div className="absolute inset-4 rounded-full overflow-hidden shadow-2xl group-hover:scale-110 transition-all duration-500">
+                <div className="relative w-full h-full">
+                  <img 
+                    src="/src/images/profil.png" 
+                    alt="Profil" 
+                    className="w-full h-full object-cover"
+                  />
+                  {/* Effet de surbrillance au survol */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-cyan-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  {/* Effet de lueur */}
+                  <div className="absolute inset-0 rounded-full border-4 border-transparent group-hover:border-purple-400/30 group-hover:animate-pulse transition-all duration-700"></div>
+                </div>
               </div>
               
               {/* Effet de lueur */}
               <div className="absolute inset-0 bg-gradient-to-r from-purple-500/50 via-blue-500/50 to-cyan-500/50 rounded-full blur-2xl animate-pulse-glow"></div>
               
               {/* Particules orbitales */}
-              {[...Array(8)].map((_, i) => (
+              {/* {[...Array(8)].map((_, i) => (
                 <div
                   key={i}
                   className="absolute w-3 h-3 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full animate-float"
@@ -115,7 +125,7 @@ const Hero = () => {
                     animationDuration: `${6 + i * 0.5}s`
                   }}
                 />
-              ))}
+              ))} */}
             </div>
             
             {/* Nom avec effet de frappe */}
