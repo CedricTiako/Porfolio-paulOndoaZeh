@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { MapPin, Phone, Mail, Linkedin, Github, MessageCircle, ChevronDown, Sparkles, Zap } from 'lucide-react';
+import profilImage from '../images/profil.png';
 
 const Hero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -98,7 +99,7 @@ const Hero = () => {
               <div className="absolute inset-4 rounded-full overflow-hidden shadow-2xl group-hover:scale-110 transition-all duration-500">
                 <div className="relative w-full h-full">
                   <img 
-                    src="/src/images/profil.png" 
+                    src={profilImage} 
                     alt="Profil" 
                     className="w-full h-full object-cover"
                   />
