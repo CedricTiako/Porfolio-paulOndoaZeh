@@ -7,13 +7,16 @@ import Skills from './components/Skills';
 import Experience from './components/Experience';
 import Education from './components/Education';
 import Projects from './components/Projects';
+import UserExperience from './components/UserExperience';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import ScrollProgress from './components/ScrollProgress';
 
 function App() {
   return (
     <ThemeProvider>
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+        <ScrollProgress />
         <Header />
         <main>
           <Hero />
@@ -22,6 +25,7 @@ function App() {
           <Experience />
           <Education />
           <Projects />
+          <UserExperience />
           <Contact />
         </main>
         <Footer />
