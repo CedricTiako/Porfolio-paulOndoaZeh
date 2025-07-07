@@ -16,6 +16,13 @@
   --shadow-glow: 0 25px 50px -12px rgba(139, 92, 246, 0.25);
 }
 
+/* Variables pour le mode sombre */
+.dark {
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --shadow-glow: 0 25px 50px -12px rgba(139, 92, 246, 0.4);
+}
+
 /* Animations personnalisées améliorées */
 @keyframes fade-in-up {
   from {
@@ -180,6 +187,18 @@
   }
 }
 
+@keyframes theme-switch {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(180deg);
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+  }
+}
+
 /* Classes d'animation */
 .animate-fade-in-up {
   animation: fade-in-up 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
@@ -240,6 +259,10 @@
   animation: text-glow 2s ease-in-out infinite;
 }
 
+.animate-theme-switch {
+  animation: theme-switch 0.5s ease-in-out;
+}
+
 /* Classes de délai harmonisées */
 .delay-100 { animation-delay: 100ms; }
 .delay-200 { animation-delay: 200ms; }
@@ -274,6 +297,10 @@
   backdrop-filter: blur(25px);
   transform: translateY(-8px) scale(1.02);
   box-shadow: 0 32px 64px -12px rgba(139, 92, 246, 0.4);
+}
+
+.dark .glass-card-hover:hover {
+  background: rgba(255, 255, 255, 0.08);
 }
 
 /* Effets de survol harmonisés */
@@ -359,6 +386,10 @@
   box-shadow: var(--shadow-glow);
 }
 
+.dark .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
 /* Scrollbar personnalisée */
 ::-webkit-scrollbar {
   width: 8px;
@@ -366,6 +397,10 @@
 
 ::-webkit-scrollbar-track {
   background: var(--dark-bg);
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #1e293b;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -388,6 +423,11 @@ a:focus {
   outline: 2px solid var(--primary-purple);
   outline-offset: 2px;
   border-radius: 0.5rem;
+}
+
+/* Transitions de thème fluides */
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
 /* Responsive amélioré */
@@ -493,3 +533,18 @@ a:focus {
   width: 300px;
   height: 300px;
 }
+
+/* Adaptations pour le mode sombre */
+.dark .text-gray-900 { color: #f1f5f9; }
+.dark .text-gray-800 { color: #e2e8f0; }
+.dark .text-gray-700 { color: #cbd5e1; }
+.dark .text-gray-600 { color: #94a3b8; }
+.dark .text-gray-500 { color: #64748b; }
+.dark .text-gray-400 { color: #475569; }
+
+.dark .bg-gray-50 { background-color: #0f172a; }
+.dark .bg-gray-100 { background-color: #1e293b; }
+.dark .bg-gray-200 { background-color: #334155; }
+
+.dark .border-gray-200 { border-color: #334155; }
+.dark .border-gray-300 { border-color: #475569; }
