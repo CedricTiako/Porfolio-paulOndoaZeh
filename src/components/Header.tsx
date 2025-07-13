@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Home, User, Code, Briefcase, GraduationCap, FolderOpen, Mail, Calculator, Sparkles } from 'lucide-react';
+import { Menu, X, Home, User, Code, Briefcase, GraduationCap, FolderOpen, Mail, Calculator, BookOpen, Sparkles } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
 import { useTheme } from '../contexts/ThemeContext';
 
@@ -14,7 +14,7 @@ const Header = () => {
       setIsScrolled(window.scrollY > 50);
       
       // Active section detection
-      const sections = ['hero', 'about', 'skills', 'experience', 'education', 'projects', 'contact'];
+      const sections = ['hero', 'about', 'skills', 'experience', 'education', 'projects', 'calculator', 'blog', 'contact'];
       const scrollPosition = window.scrollY + 100;
       
       for (const section of sections) {
@@ -43,6 +43,7 @@ const Header = () => {
     { href: '#education', label: 'Formation', icon: GraduationCap, id: 'education' },
     { href: '#projects', label: 'Projets', icon: FolderOpen, id: 'projects' },
     { href: '#calculator', label: 'Calculateur', icon: Calculator, id: 'calculator' },
+    { href: '#blog', label: 'Blog', icon: BookOpen, id: 'blog' },
     { href: '#contact', label: 'Contact', icon: Mail, id: 'contact' },
   ];
 
