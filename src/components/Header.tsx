@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Home, User, Code, Briefcase, GraduationCap, FolderOpen, Mail, Sparkles } from 'lucide-react';
+import { Menu, X, Home, User, Code, Briefcase, GraduationCap, FolderOpen, Mail, Calculator, Sparkles } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
 import { useTheme } from '../contexts/ThemeContext';
 
@@ -42,6 +42,7 @@ const Header = () => {
     { href: '#experience', label: 'Expérience', icon: Briefcase, id: 'experience' },
     { href: '#education', label: 'Formation', icon: GraduationCap, id: 'education' },
     { href: '#projects', label: 'Projets', icon: FolderOpen, id: 'projects' },
+    { href: '#calculator', label: 'Calculateur', icon: Calculator, id: 'calculator' },
     { href: '#contact', label: 'Contact', icon: Mail, id: 'contact' },
   ];
 
