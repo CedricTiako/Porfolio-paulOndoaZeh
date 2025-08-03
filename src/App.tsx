@@ -10,6 +10,8 @@ import Projects from './components/Projects';
 import UserExperience from './components/UserExperience';
 import ProjectCalculator from './components/ProjectCalculator';
 import Blog from './components/Blog';
+import Testimonials from './components/Testimonials';
+import PWAInstaller from './components/PWAInstaller';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ScrollProgress from './components/ScrollProgress';
@@ -29,10 +31,12 @@ function App() {
           <Projects />
           <UserExperience />
           <ProjectCalculator />
+          <Testimonials />
           <Blog />
           <Contact />
         </main>
         <Footer />
+        <PWAInstaller />
       </div>
     </ThemeProvider>
   );

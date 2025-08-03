@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Home, User, Code, Briefcase, GraduationCap, FolderOpen, Mail, Calculator, BookOpen, Sparkles } from 'lucide-react';
-import ThemeToggle from './ThemeToggle';
+import AdvancedDarkMode from './AdvancedDarkMode';
 import { useTheme } from '../contexts/ThemeContext';
 
 const Header = () => {
@@ -44,6 +44,7 @@ const Header = () => {
     { href: '#projects', label: 'Projets', icon: FolderOpen, id: 'projects' },
     { href: '#calculator', label: 'Calculateur', icon: Calculator, id: 'calculator' },
     { href: '#blog', label: 'Blog', icon: BookOpen, id: 'blog' },
+    { href: '#testimonials', label: 'Témoignages', icon: Sparkles, id: 'testimonials' },
     { href: '#contact', label: 'Contact', icon: Mail, id: 'contact' },
   ];
 
@@ -138,13 +139,13 @@ const Header = () => {
               
               {/* Theme Toggle */}
               <div className="ml-4">
-                <ThemeToggle />
+                <AdvancedDarkMode />
               </div>
             </div>
 
             {/* Mobile Menu Button - Enhanced */}
             <div className="lg:hidden flex items-center space-x-3">
-              <ThemeToggle />
+              <AdvancedDarkMode />
               <button
                 className={`relative p-3 rounded-2xl transition-all duration-500 hover:scale-110 backdrop-blur-lg border ${
                   isDark

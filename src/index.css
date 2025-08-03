@@ -572,6 +572,76 @@ a:focus {
 
 /* Responsive amélioré */
 @media (max-width: 768px) {
+  /* Optimisations mobiles générales */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Textes responsive */
+  .text-5xl, .text-6xl, .text-7xl {
+    font-size: 2.5rem !important;
+    line-height: 1.2;
+  }
+  
+  .text-4xl {
+    font-size: 2rem !important;
+  }
+  
+  .text-3xl {
+    font-size: 1.75rem !important;
+  }
+  
+  .text-2xl {
+    font-size: 1.5rem !important;
+  }
+  
+  .text-xl {
+    font-size: 1.125rem !important;
+  }
+  
+  /* Espacements responsive */
+  .py-24 {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+  }
+  
+  .py-20 {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+  
+  .mb-20 {
+    margin-bottom: 3rem !important;
+  }
+  
+  .mb-16 {
+    margin-bottom: 2.5rem !important;
+  }
+  
+  .mb-12 {
+    margin-bottom: 2rem !important;
+  }
+  
+  /* Cartes responsive */
+  .glass-card {
+    padding: 1.5rem !important;
+  }
+  
+  .rounded-3xl {
+    border-radius: 1.5rem !important;
+  }
+  
+  /* Grilles responsive */
+  .grid-cols-3 {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+  }
+  
+  .grid-cols-2 {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+  }
+  
+  /* Animations plus rapides sur mobile */
   .animate-fade-in-up,
   .animate-fade-in-left,
   .animate-fade-in-right {
@@ -585,13 +655,104 @@ a:focus {
   .hover-lift:hover {
     transform: translateY(-4px) scale(1.01);
   }
+  
+  /* Boutons responsive */
+  .btn-primary,
+  .btn-secondary {
+    padding: 0.875rem 1.5rem !important;
+    font-size: 0.875rem !important;
+  }
+  
+  /* Navigation mobile */
+  .lg\\:hidden {
+    display: block !important;
+  }
+  
+  .lg\\:flex {
+    display: none !important;
+  }
 }
 
 @media (max-width: 480px) {
+  /* Très petits écrans */
+  .text-5xl, .text-6xl, .text-7xl {
+    font-size: 2rem !important;
+  }
+  
+  .text-4xl {
+    font-size: 1.75rem !important;
+  }
+  
+  .text-3xl {
+    font-size: 1.5rem !important;
+  }
+  
+  .py-24 {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+  
+  .py-20 {
+    padding-top: 2.5rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+  
+  .glass-card {
+    padding: 1rem !important;
+  }
+  
+  .rounded-3xl {
+    border-radius: 1rem !important;
+  }
+  
   .animate-fade-in-up,
   .animate-fade-in-left,
   .animate-fade-in-right {
     animation-duration: 0.6s;
+  }
+}
+
+/* Optimisations tactiles */
+@media (hover: none) and (pointer: coarse) {
+  .hover\\:scale-105:hover,
+  .hover\\:scale-110:hover,
+  .group:hover .group-hover\\:scale-110 {
+    transform: none !important;
+  }
+  
+  .hover\\:shadow-xl:hover,
+  .hover\\:shadow-2xl:hover {
+    box-shadow: none !important;
+  }
+  
+  /* Améliorer les zones de touch */
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Optimisations pour les écrans haute densité */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .glass-card {
+    backdrop-filter: blur(15px);
+  }
+}
+
+/* Mode paysage mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .py-24 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+  
+  .py-20 {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+  
+  .min-h-screen {
+    min-height: auto !important;
   }
 }
 
