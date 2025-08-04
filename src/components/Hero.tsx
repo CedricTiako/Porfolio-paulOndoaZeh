@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { MapPin, Phone, Mail, Linkedin, Github, MessageCircle, ChevronDown, Sparkles, Zap } from 'lucide-react';
-import profilImage from '../images/profil.png';
+import profilImage from '../images/WhatsApp Image 2025-07-18 at 02.17.44.jpeg';
 
 const Hero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });

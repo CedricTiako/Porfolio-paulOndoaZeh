@@ -737,6 +737,12 @@ a:focus {
   .glass-card {
     backdrop-filter: blur(15px);
   }
+  
+  /* Optimisation des images haute résolution */
+  img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
 }
 
 /* Mode paysage mobile */
@@ -835,6 +841,104 @@ a:focus {
   height: 300px;
 }
 
+/* Optimisations avancées pour les performances */
+.lazy-load {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.lazy-load.loaded {
+  opacity: 1;
+}
+
+/* Préchargement des images critiques */
+.preload-image {
+  content: '';
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+  width: 1px;
+  height: 1px;
+}
+
+/* Optimisation des fonts */
+@font-face {
+  font-family: 'Inter';
+  font-display: swap;
+  src: local('Inter');
+}
+
+/* Réduction du layout shift */
+.aspect-ratio-16-9 {
+  aspect-ratio: 16 / 9;
+}
+
+.aspect-ratio-1-1 {
+  aspect-ratio: 1 / 1;
+}
+
+.aspect-ratio-4-3 {
+  aspect-ratio: 4 / 3;
+}
+
+/* Optimisations pour les animations */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in-up,
+  .animate-fade-in-left,
+  .animate-fade-in-right,
+  .animate-float,
+  .animate-float-gentle,
+  .animate-spin-slow,
+  .animate-pulse-glow,
+  .animate-gradient-shift,
+  .animate-slide-in-blur,
+  .animate-scale-in,
+  .animate-bounce-in,
+  .animate-shimmer,
+  .animate-particle-rise,
+  .animate-text-glow,
+  .animate-theme-switch,
+  .animate-elastic-bounce,
+  .animate-magnetic-pull,
+  .animate-smooth-slide-in,
+  .animate-gentle-glow {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Optimisations pour les interactions tactiles */
+@media (hover: none) and (pointer: coarse) {
+  .hover-lift:hover,
+  .hover-glow:hover,
+  .glass-card-hover:hover {
+    transform: none !important;
+  }
+  
+  /* Zones de touch plus grandes sur mobile */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Optimisations pour les connexions lentes */
+@media (prefers-reduced-data: reduce) {
+  .animate-particle-rise,
+  .animate-shimmer,
+  .animate-pulse-glow {
+    animation: none !important;
+  }
+  
+  .glass-card {
+    backdrop-filter: none;
+    background: rgba(255, 255, 255, 0.9);
+  }
+  
+  .dark .glass-card {
+    background: rgba(0, 0, 0, 0.8);
+  }
+}
 /* Adaptations pour le mode sombre */
 .dark .text-gray-900 { color: #f1f5f9; }
 .dark .text-gray-800 { color: #e2e8f0; }
