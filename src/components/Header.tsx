@@ -45,6 +45,7 @@ const Header = () => {
     { href: '#calculator', label: 'Calculateur', icon: Calculator, id: 'calculator' },
     { href: '#blog', label: 'Blog', icon: BookOpen, id: 'blog' },
     { href: '#testimonials', label: 'Témoignages', icon: Sparkles, id: 'testimonials' },
+    { href: '#testimonials', label: 'Témoignages', icon: Sparkles, id: 'testimonials' },
     { href: '#contact', label: 'Contact', icon: Mail, id: 'contact' },
   ];
 
