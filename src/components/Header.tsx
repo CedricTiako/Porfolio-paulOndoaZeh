@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Home, User, Code, Briefcase, GraduationCap, FolderOpen, Mail, Calculator, BookOpen, Sparkles } from 'lucide-react';
+import { Menu, X, Home, User, Code, Briefcase, GraduationCap, FolderOpen, Mail, Calculator, BookOpen, Sparkles, Heart } from 'lucide-react';
 import AdvancedDarkMode from './AdvancedDarkMode';
 import { useTheme } from '../contexts/ThemeContext';
 
