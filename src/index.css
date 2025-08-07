@@ -4,7 +4,7 @@
 
 /* Variables CSS pour la cohérence des couleurs */
 :root {
-  --primary-purple: #8b5cf6;
+  --primary-purple: #7c3aed;
   --primary-blue: #3b82f6;
   --primary-cyan: #06b6d4;
   --accent-pink: #ec4899;
@@ -13,14 +13,14 @@
   --dark-surface: #1e293b;
   --glass-bg: rgba(255, 255, 255, 0.1);
   --glass-border: rgba(255, 255, 255, 0.2);
-  --shadow-glow: 0 25px 50px -12px rgba(139, 92, 246, 0.25);
+  --shadow-glow: 0 25px 50px -12px rgba(124, 58, 237, 0.25);
 }
 
 /* Variables pour le mode sombre */
 .dark {
   --glass-bg: rgba(255, 255, 255, 0.05);
   --glass-border: rgba(255, 255, 255, 0.1);
-  --shadow-glow: 0 25px 50px -12px rgba(139, 92, 246, 0.4);
+  --shadow-glow: 0 25px 50px -12px rgba(124, 58, 237, 0.4);
 }
 
 /* Animations personnalisées améliorées */
@@ -92,10 +92,10 @@
 
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.4);
   }
   50% {
-    box-shadow: 0 0 40px rgba(139, 92, 246, 0.8), 0 0 60px rgba(59, 130, 246, 0.4);
+    box-shadow: 0 0 40px rgba(124, 58, 237, 0.8), 0 0 60px rgba(59, 130, 246, 0.4);
   }
 }
 
@@ -180,10 +180,10 @@
 
 @keyframes text-glow {
   0%, 100% {
-    text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+    text-shadow: 0 0 10px rgba(124, 58, 237, 0.5);
   }
   50% {
-    text-shadow: 0 0 20px rgba(139, 92, 246, 0.8), 0 0 30px rgba(59, 130, 246, 0.5);
+    text-shadow: 0 0 20px rgba(124, 58, 237, 0.8), 0 0 30px rgba(59, 130, 246, 0.5);
   }
 }
 
@@ -259,10 +259,10 @@
 
 @keyframes gentle-glow {
   0%, 100% {
-    box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+    box-shadow: 0 0 15px rgba(124, 58, 237, 0.3);
   }
   50% {
-    box-shadow: 0 0 25px rgba(139, 92, 246, 0.6), 0 0 35px rgba(59, 130, 246, 0.3);
+    box-shadow: 0 0 25px rgba(124, 58, 237, 0.6), 0 0 35px rgba(59, 130, 246, 0.3);
   }
 }
 
@@ -462,7 +462,7 @@
 
 /* Texte dégradé harmonisé */
 .gradient-text {
-  background: linear-gradient(135deg, var(--primary-purple), var(--primary-blue), var(--primary-cyan));
+  background: linear-gradient(135deg, #7c3aed, var(--primary-blue), var(--primary-cyan));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -470,7 +470,7 @@
 }
 
 .gradient-text-animated {
-  background: linear-gradient(135deg, var(--primary-purple), var(--primary-blue), var(--primary-cyan), var(--accent-pink));
+  background: linear-gradient(135deg, #7c3aed, var(--primary-blue), var(--primary-cyan), var(--accent-pink));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -480,13 +480,13 @@
 
 /* Boutons harmonisés avec micro-interactions */
 .btn-primary {
-  background: linear-gradient(135deg, var(--primary-purple), var(--primary-blue));
+  background: linear-gradient(135deg, #7c3aed, var(--primary-blue));
   color: white;
   padding: 1rem 2rem;
   border-radius: 1rem;
   font-weight: 600;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 10px 25px -5px rgba(139, 92, 246, 0.4);
+  box-shadow: 0 10px 25px -5px rgba(124, 58, 237, 0.4);
   position: relative;
   overflow: hidden;
 }
@@ -502,7 +502,7 @@
 
 .btn-primary:hover {
   transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 20px 40px -5px rgba(139, 92, 246, 0.6);
+  box-shadow: 0 20px 40px -5px rgba(124, 58, 237, 0.6);
 }
 
 .btn-primary:hover::before {
@@ -565,7 +565,7 @@ html {
 /* États de focus pour l'accessibilité */
 button:focus,
 a:focus {
-  outline: 2px solid var(--primary-purple);
+  outline: 2px solid #7c3aed;
   outline-offset: 2px;
   border-radius: 0.5rem;
 }
