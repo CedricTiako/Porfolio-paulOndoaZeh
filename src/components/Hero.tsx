@@ -4,7 +4,14 @@ import profilImage from '../images/WhatsApp Image 2025-07-18 at 02.17.44.jpeg';
 
 const Hero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [particles, setParticles] = useState<Array<{ id: number; x: number; y: number; delay: number }>>([]);
+  const [particles] = useState<Array<{ id: number; x: number; y: number; delay: number }>>(() => 
+    Array.from({ length: 20 }, (_, i) => ({
+      id: i,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      delay: Math.random() * 5
+    }))
+  );
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -12,15 +19,6 @@ const Hero = () => {
     };
 
     window.addEventListener('mousemove', handleMouseMove);
-
-    // Générer des particules
-    const newParticles = Array.from({ length: 30 }, (_, i) => ({
-      id: i,
-      x: Math.random() * 100,
-      y: Math.random() * 100,
-      delay: Math.random() * 5
-    }));
-    setParticles(newParticles);
 
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);

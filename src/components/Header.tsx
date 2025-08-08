@@ -42,7 +42,6 @@ const Header = () => {
     { href: '#experience', label: 'Expérience', icon: Briefcase, id: 'experience' },
     { href: '#education', label: 'Formation', icon: GraduationCap, id: 'education' },
     { href: '#projects', label: 'Projets', icon: FolderOpen, id: 'projects' },
-    { href: '#user-experience', label: 'UX/UI', icon: Heart, id: 'user-experience' },
     { href: '#calculator', label: 'Calculateur', icon: Calculator, id: 'calculator' },
     { href: '#blog', label: 'Blog', icon: BookOpen, id: 'blog' },
     { href: '#testimonials', label: 'Témoignages', icon: Sparkles, id: 'testimonials' },

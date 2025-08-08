@@ -17,17 +17,24 @@ const PWAInstaller = () => {
     const isInWebAppiOS = (window.navigator as any).standalone === true;
     setIsInstalled(isStandalone || isInWebAppiOS);
 
+    // Ne pas afficher si déjà refusé dans cette session
+    if (sessionStorage.getItem('pwa-prompt-dismissed')) {
+      return;
+    }
+
     // Écouter l'événement beforeinstallprompt
     const handleBeforeInstallPrompt = (e: Event) => {
       e.preventDefault();
       setDeferredPrompt(e as BeforeInstallPromptEvent);
       
       // Afficher le prompt après un délai
-      setTimeout(() => {
+      const timer = setTimeout(() => {
         if (!isInstalled) {
           setShowInstallPrompt(true);
         }
       }, 10000); // Attendre 10 secondes
+      
+      return () => clearTimeout(timer);
     };
 
     // Écouter l'installation

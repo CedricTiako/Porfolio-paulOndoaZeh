@@ -4,23 +4,23 @@
 
 /* Variables CSS pour la cohérence des couleurs */
 :root {
-  --primary-purple: #7c3aed;
-  --primary-blue: #3b82f6;
-  --primary-cyan: #06b6d4;
-  --accent-pink: #ec4899;
-  --accent-emerald: #10b981;
-  --dark-bg: #0f172a;
-  --dark-surface: #1e293b;
+  --primary-purple: #8b5cf6;
+  --primary-blue: #60a5fa;
+  --primary-cyan: #22d3ee;
+  --accent-pink: #f472b6;
+  --accent-emerald: #34d399;
+  --dark-bg: #1e293b;
+  --dark-surface: #334155;
   --glass-bg: rgba(255, 255, 255, 0.1);
   --glass-border: rgba(255, 255, 255, 0.2);
-  --shadow-glow: 0 25px 50px -12px rgba(124, 58, 237, 0.25);
+  --shadow-glow: 0 25px 50px -12px rgba(139, 92, 246, 0.3);
 }
 
 /* Variables pour le mode sombre */
 .dark {
-  --glass-bg: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --shadow-glow: 0 25px 50px -12px rgba(124, 58, 237, 0.4);
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --shadow-glow: 0 25px 50px -12px rgba(139, 92, 246, 0.4);
 }
 
 /* Animations personnalisées améliorées */
