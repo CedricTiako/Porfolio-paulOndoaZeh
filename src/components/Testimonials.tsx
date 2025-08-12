@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import LazyImage from './LazyImage';
 import { Star, Quote, ChevronLeft, ChevronRight, User, MapPin, Briefcase, Heart, Sparkles, Award } from 'lucide-react';
 
 const Testimonials = () => {
@@ -162,7 +163,7 @@ const Testimonials = () => {
               <div className="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-8 mb-6 md:mb-8">
                 <div className="relative group">
                   <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-4 border-purple-200 dark:border-purple-700 group-hover:scale-110 transition-transform duration-300">
-                    <img 
+                    <LazyImage
                       src={currentClient.avatar} 
                       alt={currentClient.name}
                       className="w-full h-full object-cover"

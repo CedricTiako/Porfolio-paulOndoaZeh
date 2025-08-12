@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import LazyImage from './LazyImage';
 import { 
   BookOpen, 
   Calendar, 
@@ -268,7 +269,7 @@ const Blog = () => {
                   onClick={() => handleReadMore(article.id)}
                 >
                   <div className="relative h-64 overflow-hidden">
-                    <img 
+                    <LazyImage
                       src={article.image} 
                       alt={article.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
@@ -365,7 +366,7 @@ const Blog = () => {
                 onClick={() => handleReadMore(article.id)}
               >
                 <div className="relative h-48 overflow-hidden">
-                  <img 
+                  <LazyImage
                     src={article.image} 
                     alt={article.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"

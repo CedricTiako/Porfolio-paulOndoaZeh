@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { MapPin, Phone, Mail, Linkedin, Github, MessageCircle, ChevronDown, Sparkles, Zap } from 'lucide-react';
+import LazyImage from './LazyImage';
 import profilImage from '../images/WhatsApp Image 2025-07-18 at 02.17.44.jpeg';
 
 const Hero = () => {
@@ -96,7 +97,7 @@ const Hero = () => {
               {/* Avatar principal avec image de profil */}
               <div className="absolute inset-4 rounded-full overflow-hidden shadow-2xl group-hover:scale-110 transition-all duration-500">
                 <div className="relative w-full h-full">
-                  <img 
+                  <LazyImage
                     src={profilImage} 
                     alt="Profil" 
                     className="w-full h-full object-cover"
