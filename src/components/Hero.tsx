@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { MapPin, Phone, Mail, Linkedin, Github, MessageCircle, ChevronDown, Sparkles, Zap } from 'lucide-react';
 import LazyImage from './LazyImage';
+import SmartTooltip from './SmartTooltip';
+import MicroInteraction from './MicroInteractions';
+import SmartAnimation from './SmartAnimations';
 import profilImage from '../images/WhatsApp Image 2025-07-18 at 02.17.44.jpeg';
 
 const Hero = () => {
@@ -157,25 +160,37 @@ const Hero = () => {
           </div>
 
           {/* Cartes d'informations avec micro-interactions */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16 animate-fade-in-up delay-1200">
+          <SmartAnimation type="slideIn" direction="up" delay={1200}>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16">
             {[
               { icon: MapPin, text: 'Douala, Cameroun', color: 'from-purple-500 to-purple-600' },
               { icon: Phone, text: '+237 695249787', color: 'from-blue-500 to-blue-600' },
               { icon: Mail, text: 'paulondoa@gmail.com', color: 'from-cyan-500 to-cyan-600' }
             ].map((item, index) => (
-              <div key={index} className={`glass-card glass-card-hover p-6 rounded-2xl group micro-bounce ripple delay-${(index + 1) * 100}`}>
-                <div className="flex items-center justify-center space-x-4 text-white">
-                  <div className={`p-3 bg-gradient-to-r ${item.color} rounded-xl group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                    <item.icon size={24} />
+              <SmartTooltip 
+                key={index}
+                content={`Contactez-moi via ${item.text}`}
+                type="info"
+                position="bottom"
+              >
+                <div className={`glass-card glass-card-hover p-6 rounded-2xl group micro-bounce ripple delay-${(index + 1) * 100}`}>
+                  <div className="flex items-center justify-center space-x-4 text-white">
+                    <MicroInteraction type="zap">
+                      <div className={`p-3 bg-gradient-to-r ${item.color} rounded-xl group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                        <item.icon size={24} />
+                      </div>
+                    </MicroInteraction>
+                    <span className="font-semibold text-lg group-hover:text-purple-300 transition-colors duration-300">{item.text}</span>
                   </div>
-                  <span className="font-semibold text-lg group-hover:text-purple-300 transition-colors duration-300">{item.text}</span>
                 </div>
-              </div>
+              </SmartTooltip>
             ))}
-          </div>
+            </div>
+          </SmartAnimation>
 
           {/* Liens sociaux avec effets 3D */}
-          <div className="flex justify-center space-x-8 mb-20 animate-fade-in-up delay-1400">
+          <SmartAnimation type="bounceIn" delay={1400}>
+            <div className="flex justify-center space-x-8 mb-20">
             {[
               { 
                 href: 'https://linkedin.com/in/paul-ondoa-zeh-38666936b', 
@@ -199,26 +214,30 @@ const Hero = () => {
                 name: 'WhatsApp'
               }
             ].map((social, index) => (
-              <a
+              <SmartTooltip
                 key={index}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`group relative p-5 bg-gradient-to-r ${social.color} rounded-2xl hover:${social.hoverColor} transition-all duration-500 shadow-2xl hover:shadow-3xl transform hover:scale-110 hover:-translate-y-3 micro-bounce ripple`}
-                style={{ animationDelay: `${1600 + index * 100}ms` }}
+                content={`Suivez-moi sur ${social.name}`}
+                type="action"
+                position="top"
               >
-                <social.icon size={32} className="text-white group-hover:scale-110 transition-transform duration-300" />
-                
-                {/* Effet de lueur au survol */}
-                <div className={`absolute inset-0 bg-gradient-to-r ${social.hoverColor} rounded-2xl blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-500 -z-10`}></div>
-                
-                {/* Tooltip */}
-                <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-black/80 text-white px-3 py-1 rounded-lg text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                  {social.name}
-                </div>
-              </a>
+                <a
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`group relative p-5 bg-gradient-to-r ${social.color} rounded-2xl hover:${social.hoverColor} transition-all duration-500 shadow-2xl hover:shadow-3xl transform hover:scale-110 hover:-translate-y-3 micro-bounce ripple`}
+                  style={{ animationDelay: `${1600 + index * 100}ms` }}
+                >
+                  <MicroInteraction type="like">
+                    <social.icon size={32} className="text-white group-hover:scale-110 transition-transform duration-300" />
+                  </MicroInteraction>
+                  
+                  {/* Effet de lueur au survol */}
+                  <div className={`absolute inset-0 bg-gradient-to-r ${social.hoverColor} rounded-2xl blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-500 -z-10`}></div>
+                </a>
+              </SmartTooltip>
             ))}
-          </div>
+            </div>
+          </SmartAnimation>
 
           {/* Indicateur de défilement animé */}
           <div className="animate-fade-in-up delay-1800">

@@ -2,6 +2,9 @@ import React from 'react';
 import { ThemeProvider } from './contexts/ThemeContext';
 import ErrorBoundary from './components/ErrorBoundary';
 import Analytics from './components/Analytics';
+import SmartCursor from './components/SmartCursor';
+import InteractiveBackground from './components/InteractiveBackground';
+import SmartNavigation from './components/SmartNavigation';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -23,9 +26,12 @@ function App() {
     <ErrorBoundary>
       <ThemeProvider>
         <Analytics trackingId={import.meta.env.VITE_GA_TRACKING_ID} />
+        <SmartCursor />
+        <InteractiveBackground />
         <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
           <ScrollProgress />
           <Header />
+          <SmartNavigation />
           <main>
             <Hero />
             <About />

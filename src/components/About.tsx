@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Target, Zap, Users, Sparkles, TrendingUp, Award, Code, Brain } from 'lucide-react';
+import SmartAnimation from './SmartAnimations';
+import MicroInteraction from './MicroInteractions';
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -95,12 +97,15 @@ const About = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
             {/* Contenu principal */}
-            <div className="space-y-8 animate-fade-in-left">
+            <SmartAnimation type="slideIn" direction="left">
+              <div className="space-y-8">
               <div className="glass-card glass-card-hover rounded-3xl p-10 group">
                 <div className="flex items-center mb-8">
-                  <div className="p-4 bg-gradient-to-r from-purple-500 to-blue-500 rounded-2xl mr-6 group-hover:scale-110 transition-transform duration-500 shadow-xl">
-                    <Target className="text-white" size={32} />
-                  </div>
+                  <MicroInteraction type="star">
+                    <div className="p-4 bg-gradient-to-r from-purple-500 to-blue-500 rounded-2xl mr-6 group-hover:scale-110 transition-transform duration-500 shadow-xl">
+                      <Target className="text-white" size={32} />
+                    </div>
+                  </MicroInteraction>
                   <h3 className="text-3xl font-bold gradient-text">
                     Objectif Professionnel
                   </h3>
@@ -146,10 +151,12 @@ const About = () => {
                   ))}
                 </div>
               </div>
-            </div>
+              </div>
+            </SmartAnimation>
 
             {/* Cartes de fonctionnalités */}
-            <div className="space-y-6 animate-fade-in-right">
+            <SmartAnimation type="slideIn" direction="right">
+              <div className="space-y-6">
               {features.map((feature, index) => (
                 <div 
                   key={index}
@@ -187,7 +194,8 @@ const About = () => {
                   </div>
                 </div>
               ))}
-            </div>
+              </div>
+            </SmartAnimation>
           </div>
 
           {/* Statistiques améliorées */}
