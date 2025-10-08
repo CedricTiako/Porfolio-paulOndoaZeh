@@ -1,66 +1,99 @@
-const CACHE_NAME = 'paul-ondoa-portfolio-v1';
+const CACHE_NAME = 'paul-ondoa-portfolio-v2';
+const OFFLINE_CACHE = 'paul-ondoa-offline-v2';
+const RUNTIME_CACHE = 'paul-ondoa-runtime-v2';
+
 const urlsToCache = [
   '/',
+  '/index.html',
   '/static/js/bundle.js',
   '/static/css/main.css',
   '/manifest.json'
 ];
 
-// Installation du Service Worker
+const offlineAssets = [
+  '/offline.html',
+  '/manifest.json'
+];
+
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then((cache) => {
-        return cache.addAll(urlsToCache);
-      })
+    Promise.all([
+      caches.open(CACHE_NAME).then((cache) => cache.addAll(urlsToCache)),
+      caches.open(OFFLINE_CACHE).then((cache) => cache.addAll(offlineAssets))
+    ])
   );
+  self.skipWaiting();
 });
 
-// Activation du Service Worker
 self.addEventListener('activate', (event) => {
+  const currentCaches = [CACHE_NAME, OFFLINE_CACHE, RUNTIME_CACHE];
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
         cacheNames.map((cacheName) => {
-          if (cacheName !== CACHE_NAME) {
+          if (!currentCaches.includes(cacheName)) {
             return caches.delete(cacheName);
           }
         })
       );
-    })
+    }).then(() => self.clients.claim())
   );
 });
 
-// Interception des requêtes
 self.addEventListener('fetch', (event) => {
-  event.respondWith(
-    caches.match(event.request)
-      .then((response) => {
-        // Retourner la réponse du cache si elle existe
-        if (response) {
-          return response;
+  const { request } = event;
+  const url = new URL(request.url);
+
+  if (request.method !== 'GET') {
+    return;
+  }
+
+  if (url.origin === location.origin) {
+    event.respondWith(
+      caches.match(request).then((cachedResponse) => {
+        if (cachedResponse) {
+          fetch(request).then((response) => {
+            if (response && response.status === 200) {
+              caches.open(RUNTIME_CACHE).then((cache) => {
+                cache.put(request, response.clone());
+              });
+            }
+          }).catch(() => {});
+
+          return cachedResponse;
         }
-        
-        // Sinon, faire la requête réseau
-        return fetch(event.request).then((response) => {
-          // Vérifier si la réponse est valide
-          if (!response || response.status !== 200 || response.type !== 'basic') {
+
+        return fetch(request).then((response) => {
+          if (!response || response.status !== 200) {
             return response;
           }
-          
-          // Cloner la réponse
+
           const responseToCache = response.clone();
-          
-          // Ajouter au cache
-          caches.open(CACHE_NAME)
-            .then((cache) => {
-              cache.put(event.request, responseToCache);
-            });
-          
+          caches.open(RUNTIME_CACHE).then((cache) => {
+            cache.put(request, responseToCache);
+          });
+
           return response;
+        }).catch(() => {
+          return caches.match('/offline.html');
         });
       })
-  );
+    );
+  } else {
+    event.respondWith(
+      fetch(request).then((response) => {
+        if (response && response.status === 200) {
+          const responseToCache = response.clone();
+          caches.open(RUNTIME_CACHE).then((cache) => {
+            cache.put(request, responseToCache);
+          });
+        }
+        return response;
+      }).catch(() => {
+        return caches.match(request);
+      })
+    );
+  }
 });
 
 // Gestion des notifications push

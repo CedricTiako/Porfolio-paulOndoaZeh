@@ -20,6 +20,7 @@ import PWAInstaller from './components/PWAInstaller';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ScrollProgress from './components/ScrollProgress';
+import BottomNavigation from './components/BottomNavigation';
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
           </main>
           <Footer />
           <PWAInstaller />
+          <BottomNavigation />
         </div>
       </ThemeProvider>
     </ErrorBoundary>
